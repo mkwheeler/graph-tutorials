@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="q4s-x2-tHC">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Bar Graph-->
+        <scene sceneID="4oB-oS-Urx">
+            <objects>
+                <viewController id="ieS-7N-fXI" customClass="CPDBarGraphViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fov-nj-A1R"/>
+                        <viewControllerLayoutGuide type="bottom" id="9K7-89-KFp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fOk-HP-ho5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="veU-Kf-O46">
+                                <rect key="frame" x="76" y="10" width="51" height="31"/>
+                                <connections>
+                                    <action selector="aaplSwitched:" destination="ieS-7N-fXI" eventType="valueChanged" id="hcN-SW-wxd"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEk-Zn-oAK">
+                                <rect key="frame" x="229" y="10" width="51" height="31"/>
+                                <connections>
+                                    <action selector="googSwitched:" destination="ieS-7N-fXI" eventType="valueChanged" id="0v6-ou-54y"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeh-zO-4fx">
+                                <rect key="frame" x="381" y="10" width="51" height="31"/>
+                                <connections>
+                                    <action selector="msftSwitched:" destination="ieS-7N-fXI" eventType="valueChanged" id="9ui-zO-jyb"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AAPL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVe-Am-Xyf">
+                                <rect key="frame" x="20" y="13" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GOOG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJI-Uk-Uu7">
+                                <rect key="frame" x="173" y="13" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MSFT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bg5-fW-WsY">
+                                <rect key="frame" x="325" y="13" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f2D-lk-KEf" customClass="CPTGraphHostingView">
+                                <rect key="frame" x="0.0" y="45" width="480" height="206"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Bar Graph" id="Zzp-ov-y5S"/>
+                    <connections>
+                        <outlet property="hostView" destination="f2D-lk-KEf" id="Shj-aT-U1q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tVb-VM-zxv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="921" y="1436"/>
+        </scene>
+        <!--Scatter Plot-->
+        <scene sceneID="1pJ-wB-V6E">
+            <objects>
+                <viewController title="Scatter Plot" id="9LS-n0-fgM" customClass="CPDScatterPlotViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v0C-CE-Oms"/>
+                        <viewControllerLayoutGuide type="bottom" id="MRt-Hz-aBt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zoS-nP-ERO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Scatter Plot" id="lch-zv-TrP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ExD-ps-x1L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="921" y="2105"/>
+        </scene>
+        <!--Pie Chart-->
+        <scene sceneID="b1a-Xx-078">
+            <objects>
+                <viewController title="Pie Chart" id="aFE-gZ-ABX" customClass="CPDPieChartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="csC-bK-fVJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="GKe-Hv-DIi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xun-Dv-3Em">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AC0-Z9-6b8">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Theme" id="N63-7O-iK1">
+                                        <connections>
+                                            <action selector="themeTapped:" destination="aFE-gZ-ABX" id="wmc-Xg-itS"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Pie Chart" id="3Rh-Uz-5UK"/>
+                    <connections>
+                        <outlet property="themeButton" destination="N63-7O-iK1" id="448-as-AtO"/>
+                        <outlet property="toolbar" destination="AC0-Z9-6b8" id="Wxa-FS-0Oz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hi2-PT-hfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920" y="776"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="9Og-fB-h8t">
+            <objects>
+                <tabBarController id="q4s-x2-tHC" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="BTh-Ox-AMJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="aFE-gZ-ABX" kind="relationship" relationship="viewControllers" id="hYb-99-IDb"/>
+                        <segue destination="ieS-7N-fXI" kind="relationship" relationship="viewControllers" id="uiQ-zv-YQa"/>
+                        <segue destination="9LS-n0-fgM" kind="relationship" relationship="viewControllers" id="dVo-re-tay"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wes-tU-xlF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96" y="1108"/>
+        </scene>
+    </scenes>
+</document>
