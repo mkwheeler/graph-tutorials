@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--BEM-->
+        <!--Data Source-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController title="BEM" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -17,14 +17,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xz8-JT-5QG">
-                                <rect key="frame" x="9" y="104" width="350" height="200"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bAV-wn-M3Z" customClass="BEMSimpleLineGraphView">
+                                <rect key="frame" x="20" y="28" width="340" height="240"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableBezierCurve" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableYAxisLabel" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableXAxisLabel" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorXaxisLabel">
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorYaxisLabel">
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="dwr-8M-wQA"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="LXc-ox-Yog"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="BEM" id="xU0-e7-h5K"/>
+                    <connections>
+                        <outlet property="graph" destination="bAV-wn-M3Z" id="esN-hq-Kmp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,11 +11,11 @@
 
 @interface ViewControllerDyn : UIViewController <UITextFieldDelegate> {
     
-    GraphView *graphView;
+   GraphView *graphView;
     
 }
 
-@property (strong, nonatomic) GraphView *graphView;
+//@property (strong, nonatomic) GraphView *graphView;
 
 
 @end

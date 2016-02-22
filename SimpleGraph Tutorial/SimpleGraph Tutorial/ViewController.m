@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "BEMSimpleLineGraphView.h"
 
 @interface ViewController () {
 int previousStepperValue;
@@ -21,16 +22,47 @@ int totalNumber;
     // Do any additional setup after loading the view, typically from a nib.
     [self hydrateDatasets];
     
-    BEMSimpleLineGraphView *myGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+  /*  BEMSimpleLineGraphView *myGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
     myGraph.dataSource = self;
     myGraph.delegate = self;
-    [self.view addSubview:myGraph];
+    [self.view addSubview:myGraph];*/
  
+/*    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    size_t num_locations = 2;
+    CGFloat locations[2] = { 0.0, 1.0 };
+    CGFloat components[8] = {
+        1.0, 1.0, 1.0, 1.0,
+        1.0, 1.0, 1.0, 0.0
+    };*/
+    
+    self.graph.enableYAxisLabel = YES;
+    self.graph.autoScaleYAxis = YES;
+    self.graph.alwaysDisplayDots = NO;
+    self.graph.enableReferenceXAxisLines = YES;
+    self.graph.enableReferenceYAxisLines = YES;
+    self.graph.enableReferenceAxisFrame = YES;
 }
 
 - (float)getRandomFloat {
     float i1 = (float)(arc4random() % 1000000) / 100 ;
     return i1;
+}
+
+- (IBAction)addOrRemovePointFromGraph:(id)sender {
+    if (self.graphObjectIncrement.value > previousStepperValue) {
+        // Add point
+        [self.arrayOfValues addObject:@([self getRandomFloat])];
+        NSDate *newDate = [self dateForGraphAfterDate:(NSDate *)[self.arrayOfDates lastObject]];
+        [self.arrayOfDates addObject:newDate];
+        [self.graph reloadGraph];
+    } else if (self.graphObjectIncrement.value < previousStepperValue) {
+        // Remove point
+        [self.arrayOfValues removeObjectAtIndex:0];
+        [self.arrayOfDates removeObjectAtIndex:0];
+        [self.graph reloadGraph];
+    }
+    
+    previousStepperValue = self.graphObjectIncrement.value;
 }
 
 - (NSDate *)dateForGraphAfterDate:(NSDate *)date {
@@ -68,15 +100,48 @@ int totalNumber;
 }
 
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
+  //  printf((int)[self.arrayOfValues count]);
     return (int)[self.arrayOfValues count];
 }
 
 
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    return 10.0;
+    return 5.0;
 }
 
+- (NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
+    
+    NSString *label = [self labelForDateAtIndex:index];
+    return [label stringByReplacingOccurrencesOfString:@" " withString:@"\n"];
+}
 
+- (NSString *)labelForDateAtIndex:(NSInteger)index {
+    NSDate *date = self.arrayOfDates[index];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateFormat = @"MM/dd";
+    NSString *label = [df stringFromDate:date];
+    return label;
+}
+
+- (IBAction)refresh:(id)sender {
+    [self hydrateDatasets];
+    
+  //  UIColor *color;
+ /*   if (self.graphColorChoice.selectedSegmentIndex == 0) color = [UIColor colorWithRed:31.0/255.0 green:187.0/255.0 blue:166.0/255.0 alpha:1.0];
+    else if (self.graphColorChoice.selectedSegmentIndex == 1) color = [UIColor colorWithRed:255.0/255.0 green:187.0/255.0 blue:31.0/255.0 alpha:1.0];
+    else if (self.graphColorChoice.selectedSegmentIndex == 2) color = [UIColor colorWithRed:0.0 green:140.0/255.0 blue:255.0/255.0 alpha:1.0];
+    
+    self.myGraph.enableBezierCurve = (BOOL) self.curveChoice.selectedSegmentIndex;
+    self.myGraph.colorTop = color;
+    self.myGraph.colorBottom = color;
+    self.myGraph.backgroundColor = color;
+    self.view.tintColor = color;
+    self.labelValues.textColor = color;
+    self.navigationController.navigationBar.tintColor = color;
+    
+    self.myGraph.animationGraphStyle = BEMLineAnimationFade;*/
+    [self.graph reloadGraph];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
